@@ -4,6 +4,7 @@ import passport from "passport";
 import dotenv from "dotenv";
 import cors from "cors";
 import dbConnect from "./config/dbConnect.js";
+import authRoutes from "./routes/authRoutes.js"
 
 dotenv.config(); // fetches data from dotenv file
 dbConnect();
@@ -15,7 +16,6 @@ const corsOptions = {
     origin:["http://localhost:3001"],
     Credentials: true,
 }
-
 app.use(cors(corsOptions));
 app.use(json({limit:"100mb"}));
 app.use(urlencoded({limit:"100mb", extended: true}));
@@ -30,8 +30,9 @@ app.use(session({
 );
 app.use(passport.initialize());
 app.use(passport.session());
-//Routes
 
+//Routes
+app.use("/api/auth", authRoutes);
 
 //Listem app
 const PORT = process.env.PORT || 7002;
