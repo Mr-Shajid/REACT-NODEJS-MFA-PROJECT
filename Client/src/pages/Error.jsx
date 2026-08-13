@@ -1,7 +1,7 @@
 import React from "react";
 
 const Error = () => {
-    <div>Error</div>;
+    return <div>Error</div>;
 };
 
 

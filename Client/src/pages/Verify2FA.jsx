@@ -1,7 +1,7 @@
 import React from "react";
 
 const Verify2FA = () => {
-    <div>Verify2FA</div>;
+    return <div>Verify2FA</div>;
 };
 
 
