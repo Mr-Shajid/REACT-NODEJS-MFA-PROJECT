@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import React, { useState } from "react";
 import {register, loginUser} from  "../service/authApi";
 
-const LoginForm = () => {
+const LoginForm = ({onLogingSuccess}) => {
     const [isRegister, setIsRegister] = useState(false);
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
@@ -17,6 +17,8 @@ const LoginForm = () => {
             setMessage(data.message);
             setUsername("");
             setPassword("");
+            setError("");
+            onLogingSuccess(data);
         }
         catch (error) {
             console.log("The err is : ", error.message);
@@ -34,11 +36,15 @@ const LoginForm = () => {
             setMessage(data.message);
             setUsername("");
             setPassword("");
+            setConfirmPassword("");
+            setError("");
         }
         catch (error) {
             console.log("The err is : ", error.message);
             setUsername("");
             setPassword("");
+            setConfirmPassword("");
+            setMessage("");
             setError("something went wrong during user registration");
         }
     }

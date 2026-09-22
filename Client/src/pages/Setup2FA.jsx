@@ -1,7 +1,14 @@
 import React from "react";
+import TwoFaSetup from "../components/TwoFASetup";
+import { useNavigate } from "react-router-dom";
 
 const Setup2FA = () => {
-    return <div>Setup2FA</div>;
+    const navigate = useNavigate();
+    const handleSetupComplete = () => {
+        navigate("/verify-2fa");
+    };
+
+    return <TwoFaSetup onSetupComplete={handleSetupComplete} />;
 };
 
 
