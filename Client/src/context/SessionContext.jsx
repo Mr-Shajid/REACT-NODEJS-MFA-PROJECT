@@ -28,11 +28,9 @@ export const SessionProvider = ({children}) => {
     };
 
     const logout = () => {
-        if (data) {
             setIsLoggedIn(false);
             setUser(null);
             sessionStorage.removeItem("user");
-        }
     };
 
     return (
